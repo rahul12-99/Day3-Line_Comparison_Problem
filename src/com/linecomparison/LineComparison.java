@@ -5,8 +5,8 @@ import java.util.Scanner;
 public class LineComparison {
     /**
      * Method for calculating the length of the line1 and line2
-     * check equality of two lines
-     * based on the end points.
+     * check equality of two lines and see which is small or
+     * greater based on the end points.
      * @param args
      */
 
@@ -16,6 +16,7 @@ public class LineComparison {
          * 2) Get user input for second line coordinate.
          * 3) Calculate the length of line1 and line2.
          * 4) Checking both lines are equal or not and printing.
+         * 5) comparing the two line to see which one is small, equal or greater.
          */
         Scanner input = new Scanner(System.in);
         int x1, y1, x2, y2;
@@ -53,6 +54,17 @@ public class LineComparison {
             System.out.println("Both lines are equal");
         } else {
             System.out.println("Both lines are not equal");
+        }
+        /*
+         *  5) comparing the two line to see which one is small, equal or greater.
+         */
+        int result = lengthOfLine1.compareTo(lengthOfLine2);
+        if(result > 0){
+            System.out.println("Line 1 is greater");
+        } else if(result < 0){
+            System.out.println("Line 2 is greater");
+        } else {
+            System.out.println("Both the lines are equal");
         }
     }
 }
