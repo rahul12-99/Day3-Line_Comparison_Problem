@@ -4,67 +4,67 @@ import java.util.Scanner;
 
 public class LineComparison {
     /**
-     * Method for calculating the length of the line1 and line2
-     * check equality of two lines and see which is small or
-     * greater based on the end points.
-     * @param args
+     * This method is for calculate the length of the line
+     */
+    public int lengthCalculate(int x1, int y1, int x2, int y2) {
+        int length = (int) Math.pow((x2 - x1), 2) + (int) Math.pow((y2 - y1), 2);
+        return (int) Math.sqrt(length);
+    }
+
+    /**
+     * This method is for check equality of line 1 and line 2
      */
 
-    public static void main(String[] args) {
-        /*
-         * 1) Get user input for first line coordinate.
-         * 2) Get user input for second line coordinate.
-         * 3) Calculate the length of line1 and line2.
-         * 4) Checking both lines are equal or not and printing.
-         * 5) comparing the two line to see which one is small, equal or greater.
-         */
-        Scanner input = new Scanner(System.in);
-        int x1, y1, x2, y2;
-        int x3, y3, x4, y4;
-        /*
-         * 1) Get user input for first line coordinate.
-         */
-        System.out.println("Kindly enter first coordinates x1 and y1: ");
-        x1 = input.nextInt();
-        y1 = input.nextInt();
-        System.out.println("Kindly enter second coordinates x2 and y2: ");
-        x2 = input.nextInt();
-        y2 = input.nextInt();
-        /*
-         * 2) Get user input for second line coordinate.
-         */
-        System.out.println("Enter coordinates of second line");
-        System.out.println("Kindly enter first coordinates x3 and y3: ");
-        x3 = input.nextInt();
-        y3 = input.nextInt();
-        System.out.println("Kindly enter second coordinates x4 and y4: ");
-        x4 = input.nextInt();
-        y4 = input.nextInt();
-
-        /*
-         *  3) Calculate the length of line1 and line2.
-         */
-        Integer lengthOfLine1 = (int) Math.sqrt( (x2 - x1) ^ 2 + (y2 - y1) ^ 2);
-        Integer lengthOfLine2 = (int) Math.sqrt( (x4 - x3) ^ 2 + (y4 - y3) ^ 2);
-
-        /*
-         *  4) Checking both lines are equal or not and printing.
-         */
-        if (lengthOfLine1.equals(lengthOfLine2)) {
+    public void checkEqual(Integer line1, Integer line2) {
+        if (line1.equals(line2)) {
             System.out.println("Both lines are equal");
         } else {
             System.out.println("Both lines are not equal");
         }
-        /*
-         *  5) comparing the two line to see which one is small, equal or greater.
-         */
-        int result = lengthOfLine1.compareTo(lengthOfLine2);
-        if(result > 0){
+    }
+
+    /**
+     * This method is for comparing line1 and line2 using compareTo method
+     */
+    public void checkComparison(Integer line1, Integer line2) {       // Check quality and display
+        if (line1.compareTo(line2) > 0) {
             System.out.println("Line 1 is greater");
-        } else if(result < 0){
+        } else if (line1.compareTo(line2) < 0) {
             System.out.println("Line 2 is greater");
         } else {
             System.out.println("Both the lines are equal");
         }
+    }
+
+    /**
+     * This is the main method of the program
+     */
+
+    public static void main(String[] args) {
+        System.out.println("Welcome to Line Comparison Computation Program ");
+        Scanner input = new Scanner(System.in);
+        LineComparison length = new LineComparison();
+        // coordinate of First Line
+        int x1, y1, x2, y2;
+        // Coordinate of Second Line
+        int x3, y3, x4, y4;
+        System.out.println("Please enter first coordinates x1 and y1 Of First Line: ");
+        x1 = input.nextInt();
+        y1 = input.nextInt();
+        System.out.println("Please enter second coordinates x2 and y2 Of First Line: ");
+        x2 = input.nextInt();
+        y2 = input.nextInt();
+        System.out.println("Please enter first coordinates x3 and y3 Of Second Line: ");
+        x3 = input.nextInt();
+        y3 = input.nextInt();
+        System.out.println("Please enter second coordinates x4 and y4 Of Second Line: ");
+        x4 = input.nextInt();
+        y4 = input.nextInt();
+        Integer line1 = length.lengthCalculate(x1, y1, x2, y2);
+        Integer line2 = length.lengthCalculate(x3, y3, x4, y4);
+        System.out.println("Line1: " + length.lengthCalculate(x1, y1, x2, y2));
+        System.out.println("Line2: " + length.lengthCalculate(x3, y3, x4, y4));
+        length.checkEqual(line1, line2);
+        length.checkComparison(line1, line2);
     }
 }
